@@ -1,0 +1,41 @@
+_repo: The-Jesuit-Missions-A-Chronicle-of-the-Cross-in-the-Wilderness_4388
+contributor:
+  creator:
+    editors:
+    - agent_name: Wrong, George McKinnon
+      alias: Wrong, George M. (George McKinnon)
+      birthdate: 1860
+      deathdate: 1948
+      gutenberg_agent_id: '1002'
+      url: http://www.gutenberg.org/2009/agents/1002
+      wikipedia: http://en.wikipedia.org/wiki/George_MacKinnon_Wrong
+    - agent_name: Langton, H. H. (Hugh Hornby)
+      alias: Langton, Hugh Hornby
+      birthdate: 1862
+      deathdate: 1953
+      gutenberg_agent_id: '4517'
+      url: http://www.gutenberg.org/2009/agents/4517
+creator:
+  author:
+    agent_name: Marquis, Thomas Guthrie
+    alias: Marquis, T. G. (Thomas Guthrie)
+    birthdate: 1864
+    deathdate: 1936
+    gutenberg_agent_id: '1476'
+    url: http://www.gutenberg.org/2009/agents/1476
+description: ''
+gutenberg_issued: '2003-08-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '4388'
+language: en
+publication_note: 'Toronto :  [s.n.],  1916'
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+series_note: 'Chronicles of Canada series: Volume 04'
+subjects:
+- !lcsh 'Jesuits -- Canada'
+- !lcc 'F1001'
+title: 'The Jesuit Missions : A Chronicle of the Cross in the Wilderness'
+url: http://www.gutenberg.org/ebooks/4388
