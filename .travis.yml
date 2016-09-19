@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: UbNNC9mnTM97E24TBSWMITSrUs0ojjbbBB66cEr9y08MEGUX+xpod6zO2UpQbbKindf1/EOnL2JsVuNgeb6NEBhESqOmLmYc6w9vNbit9zFotX71/FHoDi1aIsEfASx1t+HwGThHggtVvmSQC6lVNPe8V3avEXG65u25Mmo1T8di4UQgWS2oQlNp64xQOITD/DUpy8DYVFFQR8Tc07zwh6PM6TElICSrNPlhPPE4j+jsvsifmxt4Oxua9DVSQKALbHV/dLLwhhrVTY0W/KDkbM5odt0GuuLfvJA1wK2p4aQzRgCXo8UlS+9uevBMDkNPHHLSa8F/ZNP3lIC608aLHkvEtOVOViy8p+c4HE/CV0sc+lUioB5bTOlOHJdy4QvWTKLxQvoYJ1jbmF2mWZV0H3lNzy+TW9b6NrMi8BVG1CSEMSMhDrqxeV0KE5oM7rRC0Sl+GOXd6iEjREnXEmwKIs3MJymgMXb+R16SLuPDJ64gOgFeaSOarimfB2v5DdCG4vMzafMGfuRuxlkaARZ3Pqv6FyosDfWRh97KLfGlkkraSMCdIf6COf/qQv5w1GgZnAkxA3KvYinD8Pk/URYF/rHuyTuLmTQVCoccJyMWtvpWXzLAnxw4+PUpamY3VJhvBMemntTbAQyfRbvX2vHxMx9T24gnZvzQsYj4iRf71A4=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/The-Jesuit-Missions-A-Chronicle-of-the-Cross-in-the-Wilderness_4388
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
