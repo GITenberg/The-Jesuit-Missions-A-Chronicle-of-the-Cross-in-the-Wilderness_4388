@@ -1,5 +1,5 @@
 _repo: The-Jesuit-Missions-A-Chronicle-of-the-Cross-in-the-Wilderness_4388
-_version: 0.2.0
+_version: 0.2.1
 contributor:
   creator:
     editors:
@@ -43,5 +43,6 @@ series_note: 'Chronicles of Canada series: Volume 04'
 subjects:
 - !lcsh 'Jesuits -- Canada'
 - !lcc 'F1001'
+- GITenberg
 title: 'The Jesuit Missions : A Chronicle of the Cross in the Wilderness'
 url: http://www.gutenberg.org/ebooks/4388
